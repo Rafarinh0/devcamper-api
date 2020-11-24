@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const routes = require('./routes');
 const morgan = require('morgan');
+const errorHandler = require('./middlewares/error');
 const connectDB = require('./config/database');
 
 //Carregando variaveis de desenvolvimento
@@ -21,6 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 //Montando rotador
 app.use('/api/v1/bootcamps', routes);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
