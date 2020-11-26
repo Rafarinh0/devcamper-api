@@ -6,7 +6,7 @@ const errorHandler = require('./middlewares/error');
 const connectDB = require('./config/database');
 
 //Carregando variaveis de desenvolvimento
-dotenv.config({ path: 'config.env' });
+dotenv.config({ path: '.env' });
 
 //Conexão c o banco de dados
 connectDB();

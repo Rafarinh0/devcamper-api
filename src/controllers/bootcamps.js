@@ -1,6 +1,7 @@
 const Bootcamp = require('../models/Bootcamp');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middlewares/async');
+require('dotenv/config');
 
 // @desc    Get all bootcamps
 //@route    GET /api/v1/bootcamps
