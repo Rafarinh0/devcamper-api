@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "start": "SET NODE_ENV=production && node ./src/server.js",
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "seed-import": "node src/seeder -i",
+    "seed-destroy": "node src/seeder -d"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
