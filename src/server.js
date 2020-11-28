@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const routes = require('./routes');
+const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 const morgan = require('morgan');
 const errorHandler = require('./middlewares/error');
 const connectDB = require('./config/database');
@@ -21,7 +22,8 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 //Montando rotador
-app.use('/api/v1/bootcamps', routes);
+app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 
 app.use(errorHandler);
 
