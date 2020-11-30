@@ -4,7 +4,7 @@ require('dotenv/config');
 
 //Load models
 const Bootcamp = require('./models/Bootcamp');
-const Course = require('./models/Courses');
+const Course = require('./models/Course');
 
 //Connect to DB
 mongoose.connect(process.env.MONGO_URI, {
@@ -22,7 +22,7 @@ const courses = JSON.parse(fs.readFileSync(`${__dirname}/data/courses.json`, 'ut
 const importData = async () => {
     try {
         await Bootcamp.create(bootcamps);
-        await Course.create(courses);
+        //await Course.create(courses);
         console.log('Data imported...');
         process.exit();
     } catch (error) {

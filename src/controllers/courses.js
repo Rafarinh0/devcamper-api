@@ -61,7 +61,7 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
 //@route    PUT /api/v1/courses/:id
 //@access   Private
 exports.updateCourse = asyncHandler(async (req, res, next) => {
-    let course = await Bootcamp.findById(req.params.bootcampId)
+    let course = await Course.findById(req.params.id)
 
     if (!course) {
         return next(new ErrorResponse(`No course found with id of${req.params.id}`), 404)
@@ -79,10 +79,10 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
 //@route    DELETE /api/v1/courses/:id
 //@access   Private
 exports.deleteCourse = asyncHandler(async (req, res, next) => {
-    const course = await Bootcamp.findById(req.params.bootcampId)
+    const course = await Course.findById(req.params.id)
 
     if (!course) {
-        return next(new ErrorResponse(`No course found with id of${req.params.id}`), 404)
+        return next(new ErrorResponse(`No course found with id of ${req.params.id}`), 404)
     };
 
     await course.remove();
