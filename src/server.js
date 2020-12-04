@@ -6,6 +6,7 @@ const courses = require('./routes/courses');
 const auth = require('./routes/auth');
 const morgan = require('morgan');
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middlewares/error');
 const connectDB = require('./config/database');
 
@@ -19,6 +20,9 @@ const app = express();
 
 //Body Parser
 app.use(express.json());
+
+//Cookie Parser
+app.use(cookieParser());
 
 //Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
